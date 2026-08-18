@@ -16,7 +16,7 @@
 #
 # Repository-local resources (already in .pi/):
 #   - .pi/extensions/     – pi extensions auto-discovered at startup
-#   - .opencode/Skills/   – skills loaded via .pi/settings.json
+#   - .agents/            – skills loaded via .pi/settings.json
 #   - AGENTS.md/CLAUDE.md – context files loaded automatically
 # ===========================================================================
 
@@ -132,8 +132,8 @@ echo "      └─ graphify-gate.ts  — knowledge graph gate"
 echo "      └─ utils.ts          — /vscode, /code commands"
 echo ""
 echo "  Skills (loaded via .pi/settings.json):"
-echo "    .opencode/Skills/"
-for skill in "$(dirname "$0")/../.opencode/Skills/"*/; do
+echo "    .agents/"
+for skill in "$(dirname "$0")/../.agents/"*/; do
   [ -d "$skill" ] && echo "      └─ $(basename "$skill")"
 done
 echo ""

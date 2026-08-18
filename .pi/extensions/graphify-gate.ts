@@ -1,4 +1,4 @@
-import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import { isToolCallEventType, type ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 
@@ -15,17 +15,15 @@ export default function (pi: ExtensionAPI) {
 
   pi.on("tool_call", async (event, ctx) => {
     if (reminded) return;
-    if (event.toolName !== "bash") return;
+    if (!isToolCallEventType("bash", event)) return;
 
     const graphPath = join(ctx.cwd, "graphify-out", "graph.json");
     if (!existsSync(graphPath)) return;
 
-    // Prepend a reminder to the bash command
-    const original = (event.input as { command: string }).command;
     const reminder =
       'echo "[graphify] Knowledge graph available. Read graphify-out/GRAPH_REPORT.md for god nodes and architecture context before searching files."';
 
-    (event.input as { command: string }).command = `${reminder} && ${original}`;
+    event.input.command = `${reminder} && ${event.input.command}`;
     reminded = true;
   });
 }

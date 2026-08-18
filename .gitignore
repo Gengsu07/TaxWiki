@@ -3,6 +3,9 @@
 Thumbs.db
 __pycache__/
 
+# non-wiki personal folder (excluded from the repo)
+Non Wiki/
+
 # Obsidian
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json

@@ -18,10 +18,10 @@ GengsuWiki/
 │   ├── index.md           # Table of contents for the entire wiki
 │   ├── log.md             # Append-only record of all operations
 │   └── concept/           # Concept pages (one per idea/entity)
+├── .agents/               # Agent skills (see below)
 ├── .opencode/             # OpenCode agent configuration
 │   ├── opencode.json      # Plugin registration
-│   ├── plugins/           # Custom plugins (graphify)
-│   └── Skills/            # Agent skills (see below)
+│   └── plugins/           # Custom plugins (graphify)
 ├── AGENTS.md              # Agent schema — defines workflows and conventions
 ├── llm-wiki.md            # Karpathy's original idea document
 └── README.md              # This file
@@ -150,7 +150,7 @@ GengsuWiki is designed to evolve with you:
 
 - **Change the page format** — edit the template in `AGENTS.md`
 - **Add new workflows** — write them into `AGENTS.md` and the agent follows them
-- **Install more skills** — add skill folders to `.opencode/Skills/`
+- **Install more skills** — add skill folders to `.agents/`
 - **Adjust the structure** — add subdirectories to `wiki/` for new page types
 - **Co-evolve the schema** — refine `AGENTS.md` as you learn what works
 
