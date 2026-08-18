@@ -109,6 +109,6 @@ graph TB
 
 ## References
 
-[1] Project AGENTS.md — GengsuWiki repository. (2026). *Section: Learning Path System & Rules — "Always update wiki/index.md and wiki/log.md after changes"*. `D:/PROJECTS/GengsuWiki/AGENTS.md`
+[1] Project AGENTS.md — TaxWiki repository. (2026). *Section: Learning Path System & Rules — "Always update wiki/index.md and wiki/log.md after changes"*. `D:/PROJECTS/TaxWiki/AGENTS.md`
 
 [2] Obsidian Bases Plugin. (2024). *Bases: database-like views for your vault*. https://github.com/marcusolsson/obsidian-bases

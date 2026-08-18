@@ -120,6 +120,6 @@ When a new chapter is ingested, each node follows this structure:
 
 ## References
 
-[1] Project AGENTS.md — GengsuWiki repository. (2026). *Section: Learning Path System — "Master path sequences entire chapters. Updated only when the user asks to ingest a new source: new chapter = new node."*. `D:/PROJECTS/GengsuWiki/AGENTS.md`
+[1] Project AGENTS.md — TaxWiki repository. (2026). *Section: Learning Path System — "Master path sequences entire chapters. Updated only when the user asks to ingest a new source: new chapter = new node."*. `D:/PROJECTS/TaxWiki/AGENTS.md`
 
 [2] Ambrose, S. A., Bridges, M. W., DiPietro, M., Lovett, M. C., & Norman, M. K. (2010). *How learning works: Seven research-based principles for smart teaching*. Jossey-Bass.

@@ -91,6 +91,6 @@ graph LR
 
 ## References
 
-[1] Project AGENTS.md — GengsuWiki repository. (2026). *Section: Chapter Organization — "foundations/ — Really fundamental basic concepts needed to master a topic"*. `D:/PROJECTS/GengsuWiki/AGENTS.md`
+[1] Project AGENTS.md — TaxWiki repository. (2026). *Section: Chapter Organization — "foundations/ — Really fundamental basic concepts needed to master a topic"*. `D:/PROJECTS/TaxWiki/AGENTS.md`
 
 [2] Hattie, J. (2008). *Visible learning: A synthesis of over 800 meta-analyses relating to achievement*. Routledge. https://doi.org/10.4324/9780203887332

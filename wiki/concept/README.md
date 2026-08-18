@@ -116,6 +116,6 @@ This loop ensures the wiki stays organized no matter how much content you add [1
 
 ## References
 
-[1] Project AGENTS.md — GengsuWiki repository. (2026). *Section: Chapter Organization & Learning Path System*. `D:/PROJECTS/GengsuWiki/AGENTS.md`
+[1] Project AGENTS.md — TaxWiki repository. (2026). *Section: Chapter Organization & Learning Path System*. `D:/PROJECTS/TaxWiki/AGENTS.md`
 
 [2] Gruber, J. (2004). *Markdown: Syntax*. Daring Fireball. https://daringfireball.net/projects/markdown/syntax

@@ -108,6 +108,6 @@ graph TB
 
 ## References
 
-[1] Project AGENTS.md — GengsuWiki repository. (2026). *Section: Chapter Organization — "cross-cutting/ — Concepts that bridge multiple chapter areas and don't belong to a single topic"*. `D:/PROJECTS/GengsuWiki/AGENTS.md`
+[1] Project AGENTS.md — TaxWiki repository. (2026). *Section: Chapter Organization — "cross-cutting/ — Concepts that bridge multiple chapter areas and don't belong to a single topic"*. `D:/PROJECTS/TaxWiki/AGENTS.md`
 
 [2] Morin, E. (2008). *On complexity*. Hampton Press.

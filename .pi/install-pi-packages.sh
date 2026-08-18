@@ -2,7 +2,7 @@
 # ===========================================================================
 # install-pi-packages.sh
 # ===========================================================================
-# Bootstrap pi-coding-agent and its ecosystem packages for GengsuWiki.
+# Bootstrap pi-coding-agent and its ecosystem packages for TaxWiki.
 # Designed to work on Windows (Git Bash / WSL), Linux, and macOS.
 #
 # Run from the repo root:
