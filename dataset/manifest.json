@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-08-18 23:34:38",
+  "include_drafts": false,
+  "sources_scanned": 21,
+  "pages_scanned": 0,
+  "chapters": [
+    "cross-cutting",
+    "foundations"
+  ],
+  "counts": {
+    "task-train.jsonl": 0,
+    "task-eval.jsonl": 0,
+    "qa-train.jsonl": 0,
+    "qa-eval.jsonl": 0
+  },
+  "skipped": {
+    "no_source_found": 0,
+    "source_too_long": 0,
+    "no_summary": 0,
+    "no_chapter": 0,
+    "draft_excluded": 0
+  }
+}

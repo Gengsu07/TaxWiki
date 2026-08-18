@@ -1,6 +1,7 @@
 # OS files
 .DS_Store
 Thumbs.db
+__pycache__/
 
 # Obsidian
 .obsidian/workspace.json
@@ -10,6 +11,13 @@ Thumbs.db
 
 # graphify output
 graphify-out/
+
+# dataset: downloaded fine-tuned weights (generated JSONL IS committed)
+dataset/models/
+dataset/*.gguf
+
+# pi-knowledge binary index (rebuilt from committed JSONL via knowledge_import)
+.knowledge/
 
 # Editor
 .vscode/

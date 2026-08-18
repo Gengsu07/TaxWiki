@@ -3,6 +3,11 @@
 A personal knowledge base maintained by AI Agent (pi, Opencode, Claude Code, etc).
 Based on Andrej Karpathy's LLM Wiki pattern.
 
+> **Architecture first**: Read `TAXWIKIDESIGN.md` before touching the knowledge-store,
+> dataset, or fine-tuning infrastructure. It records the goals, decisions, and
+> rationale (RAG + fine-tuned small model split, `.knowledge/` vs committed JSONL,
+> training thresholds). This file covers day-to-day wiki operations.
+
 ## Purpose
 
 This wiki is a structured, interlinked knowledge base for learning, thinking, and building understanding across any topic.
@@ -67,7 +72,7 @@ python -m markitdown raw/source.xlsx > /tmp/source.md
 
 Then read the converted file and proceed with the normal ingest steps below.
 
-> **Fallback skills**: The `.opencode/Skills/` directory contains detailed skills for
+> **Fallback skills**: The `.agents/` directory contains detailed skills for
 > each format (pdf, docx, pptx, xlsx) that prescribe alternative extraction methods
 > (pypdf, pdfplumber, pandoc, python-pptx, openpyxl). Use them if `markitdown` fails
 > on a specific file — load the relevant skill via `/skill:name` (pi) or let the
@@ -83,6 +88,8 @@ Then read the converted file and proceed with the normal ingest steps below.
 8. Add wiki-links ([[page-name]]) to connect related pages
 9. Update `wiki/index.md` with new pages, learning path summaries, and one-line descriptions. **Check that the embedded `.base` views in `index.md` still cover the new content** — they auto-populate by tag/folder, so no manual entry is needed unless a new page type (tag or folder) is introduced, in which case create a new `.base` file for it.
 10. Append an entry to `wiki/log.md` with the date, source name, and what changed
+11. Write 5–10 grounded Q&A pairs per new/updated page to `dataset/qa-raw/<source-slug>.jsonl` (one ShareGPT record per line: system = answer-only-from-context, human = wiki page context + Indonesian tax question, gpt = cited answer). These accumulate the RAG-style training data.
+12. Run `python tools/make-dataset.py` to refresh `dataset/*.jsonl`, then commit them together with the wiki changes.
 
 A single source may touch 10-15 wiki pages. That is normal.
 
@@ -392,6 +399,16 @@ After creating or updating concept pages from a new source:
 7. Update the **Estimated duration** and node count in the header
 8. If a new chapter folder was created, update `wiki/_learning-path.md` (the master learning path) — add a node, update its Mermaid chart, and insert the new chapter node in the correct position. The master path is dynamic — it reflects only chapters that actually exist. Do not add placeholder nodes for chapters that haven't been created yet.
 
+## Dataset accumulation (fine-tuning)
+
+The wiki **accumulates its own training data** — see `dataset/README.md` for the full pipeline. Key rules:
+
+- Every ingest produces gold pairs (`raw/` source → wiki pages) that `tools/make-dataset.py` mines into Unsloth-ready JSONL. **Re-run the builder after every ingest batch** (ingest step 12).
+- Only pages with `status: stable` (or `review`) are used as training data. Draft pages are excluded — fix them via a lint pass first. The lint pass is also data cleaning.
+- Q&A pairs for `dataset/qa-raw/` are written during ingest (step 11); the builder merges and dedupes them.
+- Training runs on a GPU box (RunPod/Colab) with `dataset/train.py` — the 8GB laptop only runs the exported GGUF via Ollama. Train on a data trigger (~30+ sources first time), not on a schedule.
+- Never modify `dataset/train.py` outputs or `raw/`; the generated `dataset/*.jsonl` are committed, downloaded model weights are gitignored.
+
 ## Lint
 
 When the user asks you to lint or audit the wiki:
@@ -425,14 +442,14 @@ This repo is configured for multiple coding agents. The table below shows which 
 
 | Agent | Context file | Settings | Skills | Extensions/Plugins |
 |-------|-------------|----------|--------|--------------------|
-| **pi** | `AGENTS.md` | `.pi/settings.json` | `.opencode/Skills/` (via `skills` in settings) | `.pi/extensions/graphify-gate.ts`, `.pi/extensions/utils.ts` |
-| **Claude Code** | `CLAUDE.md` → `AGENTS.md` | `.claude/settings.json` | `.opencode/Skills/` | `.opencode/plugins/graphify.js` |
-| **OpenCode** | `AGENTS.md` | `.opencode/opencode.json` | `.opencode/Skills/` | `.opencode/plugins/graphify.js` |
+| **pi** | `AGENTS.md` | `.pi/settings.json` | `.agents/` (via `skills` in settings) | `.pi/extensions/graphify-gate.ts`, `.pi/extensions/utils.ts` |
+| **Claude Code** | `CLAUDE.md` → `AGENTS.md` | `.claude/settings.json` | `.agents/` | `.opencode/plugins/graphify.js` |
+| **OpenCode** | `AGENTS.md` | `.opencode/opencode.json` | `.agents/` | `.opencode/plugins/graphify.js` |
 
 ### Cross-agent notes
 
 - **`CLAUDE.md`** is a symlink to `AGENTS.md` (`CLAUDE.md → AGENTS.md`). Both pi and Claude Code load it automatically. Updating `AGENTS.md` keeps all agents in sync.
-- **Skills** in `.opencode/Skills/` follow the [Agent Skills standard](https://agentskills.io) and work with **pi**, **Opencode**, and **Claude Code** without modification.
+- **Skills** in `.agents/` follow the [Agent Skills standard](https://agentskills.io) and work with **pi**, **Opencode**, and **Claude Code** without modification.
 - **`.claude/settings.local.json`** is for local overrides (not committed). Add it to `.gitignore` if you use it.
 
 ### Per-agent details
@@ -441,7 +458,7 @@ This repo is configured for multiple coding agents. The table below shows which 
 
 | File | Purpose |
 |------|---------|
-| `.pi/settings.json` | Project settings — references skills from `.opencode/Skills/` and enables `/skill:` commands |
+| `.pi/settings.json` | Project settings — references skills from `.agents/` and enables `/skill:` commands |
 | `.pi/extensions/graphify-gate.ts` | Extension — reminds the model about the knowledge graph once per session (ported from `.opencode/plugins/graphify.js`) |
 | `.pi/extensions/utils.ts` | Extension — registers `/vscode` and `/code` commands to open the repo in VS Code |
 
@@ -461,7 +478,7 @@ Claude Code reads `CLAUDE.md` automatically (symlinked to `AGENTS.md`).
 | File | Purpose |
 |------|---------|
 | `.opencode/opencode.json` | Plugin config — loads `.opencode/plugins/graphify.js` |
-| `.opencode/Skills/` | Skills directory — auto-discovered by OpenCode |
+| `.agents/` | Skills directory — shared by all agents |
 | `.opencode/plugins/graphify.js` | Plugin — reminds the model about the knowledge graph |
 
 ### Graphify gate
