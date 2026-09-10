@@ -1,21 +1,24 @@
 {
-  "generated_at": "2026-08-18 23:34:38",
+  "generated_at": "2026-09-10 14:12:46",
   "include_drafts": false,
-  "sources_scanned": 21,
-  "pages_scanned": 0,
+  "sources_scanned": 24,
+  "pages_scanned": 6,
   "chapters": [
     "cross-cutting",
-    "foundations"
+    "foundations",
+    "pajak-penghasilan",
+    "pemeriksaan-pajak",
+    "probis"
   ],
   "counts": {
-    "task-train.jsonl": 0,
+    "task-train.jsonl": 12,
     "task-eval.jsonl": 0,
-    "qa-train.jsonl": 0,
+    "qa-train.jsonl": 24,
     "qa-eval.jsonl": 0
   },
   "skipped": {
-    "no_source_found": 0,
-    "source_too_long": 0,
+    "no_source_found": 11,
+    "source_too_long": 4,
     "no_summary": 0,
     "no_chapter": 0,
     "draft_excluded": 0

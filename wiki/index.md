@@ -17,13 +17,17 @@ The **[[_learning-path|Master Learning Path]]** is your starting point. It seque
 ```mermaid
 graph LR
     MLP["Master Learning Path"] --> F["Foundations"]
-    MLP --> CC["Cross-Cutting"]
-    MLP --> CH["...future chapters"]
+    F --> PP["Pemeriksaan Pajak"]
+    PP --> PPH["Pajak Penghasilan"]
+    PPH --> PROBIS["Proses Bisnis (KLU)"]
+    PROBIS --> CC["Cross-Cutting"]
 
     style MLP fill:#f9a825,color:#333
     style F fill:#66bb6a,color:#fff
+    style PP fill:#42a5f5,color:#fff
+    style PPH fill:#42a5f5,color:#fff
+    style PROBIS fill:#26c6da,color:#fff
     style CC fill:#42a5f5,color:#fff
-    style CH fill:#e0e0e0,color:#666,stroke-dasharray: 5 5
 ```
 
 > **Rule of thumb**: If you don't know where to start, start at the Master Learning Path. It's designed to be the single entry point for every learner [1].
@@ -37,7 +41,10 @@ Each chapter has its own `_learning-path.md` — a structured curriculum that se
 | # | Learning Path | Chapter Folder | Nodes | Status |
 |---|---------------|----------------|-------|--------|
 | 1 | [[concept/foundations/_learning-path\|Foundations]] | `foundations/` | 0 | draft |
-| 2 | [[concept/cross-cutting/_learning-path\|Cross-Cutting Concepts]] | `cross-cutting/` | 0 | draft |
+| 2 | [[concept/pemeriksaan-pajak/_learning-path\|Pemeriksaan Pajak]] | `pemeriksaan-pajak/` | 3 | draft |
+| 3 | [[concept/pajak-penghasilan/_learning-path\|Pajak Penghasilan]] | `pajak-penghasilan/` | 2 | draft |
+| 4 | [[concept/probis/_learning-path\|Proses Bisnis (KLU)]] | `probis/` | 1 | draft |
+| 5 | [[concept/cross-cutting/_learning-path\|Cross-Cutting Concepts]] | `cross-cutting/` | 0 | draft |
 
 *More chapter learning paths appear here automatically as concepts are ingested into topic chapters.*
 
