@@ -163,11 +163,15 @@ Learning paths use a different format — see the [Learning Path System](#learni
 
 When the user asks a question:
 
-1. Read `wiki/index.md` first to find relevant pages
-2. Read those pages and synthesize an answer
-3. Cite specific wiki pages in your response
-4. If the answer is not in the wiki, say so clearly
-5. If the answer is valuable, offer to save it as a new wiki page
+1. Search the knowledge bases first (`knowledge_search`) — they index `wiki/` AND `raw/`
+   - Use `mode: hybrid` and `limit: 4-6` per search; a higher limit or "deep"/"long_context" modes balloon the context window (each chunk is up to ~6000 chars ≈ 1500 tokens)
+   - If top results are weak, retry once with `mode: semantic` or a reworded query — do NOT compensate with bigger limits
+2. Read `wiki/index.md` only if search results are insufficient to locate the right pages
+3. Read the specific wiki pages found (they are small)
+4. **Never read files in `raw/` during Q&A.** The raw KB already contains them as chunks; a single UU document is 120-240 KB ≈ 30-60k tokens if read in full, which dwarfs the rest of the conversation. The only exception is the ingest workflow, where reading the full source is required.
+5. Cite specific wiki pages in your response
+6. If the answer is not in the wiki, say so clearly
+7. If the answer is valuable, offer to save it as a new wiki page
 
 Good answers should be filed back into the wiki so they compound over time.
 

@@ -41,7 +41,7 @@ Each chapter has its own `_learning-path.md` — a structured curriculum that se
 | # | Learning Path | Chapter Folder | Nodes | Status |
 |---|---------------|----------------|-------|--------|
 | 1 | [[concept/foundations/_learning-path\|Foundations]] | `foundations/` | 0 | draft |
-| 2 | [[concept/pemeriksaan-pajak/_learning-path\|Pemeriksaan Pajak]] | `pemeriksaan-pajak/` | 3 | draft |
+| 2 | [[concept/pemeriksaan-pajak/_learning-path\|Pemeriksaan Pajak]] | `pemeriksaan-pajak/` | 4 | draft |
 | 3 | [[concept/pajak-penghasilan/_learning-path\|Pajak Penghasilan]] | `pajak-penghasilan/` | 2 | draft |
 | 4 | [[concept/probis/_learning-path\|Proses Bisnis (KLU)]] | `probis/` | 1 | draft |
 | 5 | [[concept/cross-cutting/_learning-path\|Cross-Cutting Concepts]] | `cross-cutting/` | 0 | draft |

@@ -1,4 +1,9 @@
 {
-  "skills": [".agents"],
-  "enableSkillCommands": true
+  "skills": [
+    ".agents"
+  ],
+  "enableSkillCommands": true,
+  "packages": [
+    "npm:pi-knowledge"
+  ]
 }

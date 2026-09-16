@@ -49,6 +49,11 @@ answer with (source: file) citations
 
 ## 3. Key decisions (with rationale)
 
+0. **KB source scopes & exclusions.** Two KBs: "Indonesian Tax Wiki" <- `raw/`,
+   "TaxWiki Wiki Pages" <- `wiki/` with `exclude_paths: ["log.md"]` (append-only
+   ops history adds search noise; recreated via remove+add when the exclude list
+   changes, since `knowledge_update` only refreshes the retained source).
+
 1. **The wiki pages ARE the primary knowledge store.** Compiled once at ingest,
    not re-derived per query (Karpathy pattern). RAG augments, doesn't replace.
 
@@ -59,7 +64,10 @@ answer with (source: file) citations
      set it before launching the agent (launcher script or shell profile).
    - `knowledge_export` writes **text chunks + metadata only (no vectors)** —
      git-friendly JSONL; `knowledge_import` re-embeds on any machine.
-   - Export convention: `wiki/embeddings/indonesian-tax-wiki.jsonl` (committed).
+   - Export convention: `dataset/embeddings/<kb>.jsonl`. **Never export into
+     `wiki/`** — pi-knowledge indexes the whole `wiki/` directory, so a snapshot
+     inside it gets re-indexed into the wiki KB (feedback loop: 92% of chunks
+     became quoted JSON; fixed 2026-08-24).
    - Embedding model: `local:multilingual-e5-small` — free, CPU-only, good
      Indonesian. Reranker: MiniLM. No API keys, no per-query cost.
    - `knowledge_update` is **incremental by content hash** — unchanged chunks
@@ -165,7 +173,7 @@ python dataset/train.py --export-gguf
 | `dataset/examples/example-samples.jsonl` | hand-made samples to test the pipeline pre-ingest |
 | `dataset/README.md` | full runbook (qa-raw format, RunPod steps, Ollama import, extensions) |
 | `.knowledge/` | pi-knowledge binary index (gitignored) |
-| `wiki/embeddings/` | exported chunk JSONL snapshots (committed) |
+| `dataset/embeddings/` | exported chunk JSONL snapshots (regenerable via `knowledge_export`; gitignored) |
 
 ## 8. Current state (2026-08-18)
 

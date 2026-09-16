@@ -6,7 +6,7 @@ status: draft
 ---
 # Master Learning Path
 
-> **TL;DR**: The top-level curriculum that sequences all chapters in this wiki. Start at Foundations (node 1), then move to Cross-Cutting Concepts (node 2). As new topic chapters are ingested, nodes are added dynamically — positioned by prerequisites and difficulty. This page tells you which order to tackle the chapters, where to branch, and how everything fits together [1].
+> **TL;DR**: The top-level curriculum that sequences all chapters in this wiki. Start at Foundations (node 1), then follow the topic chapters in sequence. As new topic chapters are ingested, nodes are added dynamically — positioned by prerequisites and difficulty. This page tells you which order to tackle the chapters, where to branch, and how everything fits together [1].
 
 ---
 
@@ -16,7 +16,7 @@ The master path is the **orchestrator** of your learning journey. While individu
 
 | Level | What it sequences | Example |
 |-------|-------------------|---------|
-| **Master path** (this page) | Chapters | Foundations → Machine Learning → Cross-Cutting |
+| **Master path** (this page) | Chapters | Foundations → Pemeriksaan Pajak → Pajak Penghasilan → Proses Bisnis (KLU) → Cross-Cutting |
 | **Chapter path** | Concepts within a chapter | Probability → Bayes' Theorem → Information Theory |
 | **Concept page** | One idea in depth | bayes-theorem (example) |
 
@@ -28,13 +28,22 @@ The master path is the **orchestrator** of your learning journey. While individu
 
 ```mermaid
 graph LR
-    F["1. Foundations"] --> CC["2. Cross-Cutting"]
+    F["1. Foundations"] --> PP["2. Pemeriksaan Pajak"]
+    PP --> PPH["3. Pajak Penghasilan"]
+    PPH --> PROBIS["4. Proses Bisnis (KLU)"]
+    PROBIS --> CC["5. Cross-Cutting"]
 
     click F "concept/foundations/_learning-path.md" "Open Foundations learning path"
+    click PP "concept/pemeriksaan-pajak/_learning-path.md" "Open Pemeriksaan Pajak learning path"
+    click PPH "concept/pajak-penghasilan/_learning-path.md" "Open Pajak Penghasilan learning path"
+    click PROBIS "concept/probis/_learning-path.md" "Open Proses Bisnis (KLU) learning path"
     click CC "concept/cross-cutting/_learning-path.md" "Open Cross-Cutting learning path"
 
     style F fill:#66bb6a,color:#fff
-    style CC fill:#42a5f5,color:#fff
+    style PP fill:#42a5f5,color:#fff
+    style PPH fill:#42a5f5,color:#fff
+    style PROBIS fill:#26c6da,color:#fff
+    style CC fill:#ab47bc,color:#fff
 ```
 
 > **Note**: Click any node in Obsidian to open that chapter's learning path. As new chapters are ingested, this chart grows — nodes appear, arrows connect them by dependency, and branch points emerge where paths diverge [1].
@@ -48,7 +57,22 @@ graph LR
 **Difficulty**: foundational
 **Overview**: The essential building blocks every topic depends on — math, logic, reasoning patterns, and mental models. This chapter establishes the toolkit you'll reach for across every other chapter. Completing foundations first means you'll never hit a wall because you're missing a basic concept. Even if you're eager to jump into a specific topic, spending time here pays compounding returns as you progress.
 
-### 2. [[concept/cross-cutting/_learning-path|Cross-Cutting Concepts]]
+### 2. [[concept/pemeriksaan-pajak/_learning-path|Pemeriksaan Pajak]]
+**Prerequisites**: [[concept/foundations/_learning-path|Foundations]]
+**Difficulty**: beginner
+**Overview**: Teknik dan metode pemeriksaan pajak — bagaimana Pemeriksa Pajak menguji kebenaran SPT Wajib Pajak menggunakan pengujian keterkaitan (arus uang, arus piutang, arus utang), ekualisasi, konfirmasi, dan permintaan keterangan/bukti. Chapter ini dimulai dengan pengujian arus piutang: cara menyusun pelunasan piutang usaha dalam suatu periode untuk menguji penghasilan bruto secara akrual, lengkap dengan penyesuaian dan formula peredaran usaha. Berguna untuk siapa pun yang ingin memahami cara kerja pemeriksaan pajak atau mempersiapkan wajib pajak menghadapi pemeriksaan.
+
+### 3. [[concept/pajak-penghasilan/_learning-path|Pajak Penghasilan]]
+**Prerequisites**: [[concept/foundations/_learning-path|Foundations]]
+**Difficulty**: beginner
+**Overview**: Ketentuan umum Pajak Penghasilan (PPh) — objek, subjek, dasar pengenaan, dan mekanisme pemotongan/pemungutan. Chapter ini dimulai dengan objek PPh Pasal 21 terkait BPJS: iuran jaminan sosial yang dibayar pemberi kerja menjadi penghasilan bruto pegawai (tarif iuran JKK/JKM, JHT 5,7%, Jaminan Pensiun 3%), bagian yang bukan objek pajak, serta komponen pengurang penghasilan bruto pegawai tetap (biaya jabatan, iuran pensiun termasuk THT, PTKP). Relevan untuk memahami berapa PPh 21 yang dipotong setiap bulan dari gaji dan mengapa komposisinya demikian.
+
+### 4. [[concept/probis/_learning-path|Proses Bisnis (KLU)]]
+**Prerequisites**: [[concept/foundations/_learning-path|Foundations]] (disarankan juga pengenalan dasar PPh dan PPN)
+**Difficulty**: beginner
+**Overview**: Proses bisnis menurut klasifikasi lapangan usaha (KLU/KBLI) dan pajak yang melekat di setiap mata rantainya. Chapter ini dimulai dari KLU 47301 — perdagangan eceran bahan bakar di sarana pengisian bahan bakar (SPBU): rantai produsen/importir → penyalur/agen → konsumen akhir, PPh 22 yang dipungut produsen/importir saat penerbitan delivery order (0,25%–0,3%, final bagi penyalur/agen, tidak final bagi selain penyalur/agen), PPN yang dikenakan di setiap penyerahan dengan tarif efektif 11% (DPP nilai lain 11/12, Faktur Pajak Digunggung di eceran), PBBKB sebagai pajak daerah, dan PPh normal atas marjin pengusaha SPBU. Berguna untuk memahami dari mana pajak dipungut dalam aktivitas ekonomi nyata — fondasi penting sebelum memeriksa kepatuhan wajib pajak dan sebelum mempelajari pemungutan PPh 22/PPN pada jenis usaha lain.
+
+### 5. [[concept/cross-cutting/_learning-path|Cross-Cutting Concepts]]
 **Prerequisites**: [[concept/foundations/_learning-path|Foundations]] + at least one topic chapter
 **Difficulty**: intermediate
 **Overview**: The connective tissue between chapters — systems thinking, information theory, emergence, and other ideas that show up across disciplines. This chapter is best tackled after you have at least one domain chapter under your belt, because cross-cutting concepts make the most sense when you can map them onto concrete examples you've already learned. By the end, you'll see the hidden symmetries between topics that seemed unrelated, and you'll be able to transfer insights fluidly across domains.

@@ -3,6 +3,9 @@
 Thumbs.db
 __pycache__/
 
+# KB export snapshots (regenerable via knowledge_export; must NOT live under wiki/)
+dataset/embeddings/
+
 # non-wiki personal folder (excluded from the repo)
 Non Wiki/
 
