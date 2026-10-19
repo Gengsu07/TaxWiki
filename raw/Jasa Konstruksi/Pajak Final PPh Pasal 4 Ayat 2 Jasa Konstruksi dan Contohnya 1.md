@@ -222,15 +222,15 @@ Untuk diketahui, kualifikasi kontraktor pelaksana berdasarkan **[Peraturan Mente
 
 Berikut daftar kualifikasi kontraktor pelaksana usaha jasa konstruksi:
 
-| **Kualifikasi** | **Kekayaan Bersih** | **Pengalaman Akumulatif 10 Tahun** | **Kemampuan Pelaksanaan** |
-| --- | --- | --- | --- |
-| Kecil 1 | Rp50 juta – Rp200 juta | n/a | Maks. Rp1 miliar |
-| Kecil 2 | Rp200 juta – Rp350 juta | Min. Rp1 miliar | Maks. Rp1,75 miliar |
-| Kecil 3 | Rp350 juta – Rp500 juta | Min. Rp1,75 miliar | Maks. Rp2,5 miliar |
-| Menengah 1 | Rp500 juta – Rp2 miliar | Min. Rp2,5 miliar | Maks. Rp10 miliar |
-| Menengah 2 | Rp2 miliar – Rp10 miliar | Min. Rp3,33 miliar | Maks. Rp50 miliar |
-| Besar 1 | Rp10 miliar – Rp50 miliar | Min. Rp16,66 miliar | Maks. Rp250 miliar |
-| Besar 2 | \>Rp50 miliar | Min. Rp83.33 miliar | Tidak terbatas |
+| **Kualifikasi** | **Kekayaan Bersih**       | **Pengalaman Akumulatif 10 Tahun** | **Kemampuan Pelaksanaan** |
+| --------------- | ------------------------- | ---------------------------------- | ------------------------- |
+| Kecil 1         | Rp50 juta – Rp200 juta    | n/a                                | Maks. Rp1 miliar          |
+| Kecil 2         | Rp200 juta – Rp350 juta   | Min. Rp1 miliar                    | Maks. Rp1,75 miliar       |
+| Kecil 3         | Rp350 juta – Rp500 juta   | Min. Rp1,75 miliar                 | Maks. Rp2,5 miliar        |
+| Menengah 1      | Rp500 juta – Rp2 miliar   | Min. Rp2,5 miliar                  | Maks. Rp10 miliar         |
+| Menengah 2      | Rp2 miliar – Rp10 miliar  | Min. Rp3,33 miliar                 | Maks. Rp50 miliar         |
+| Besar 1         | Rp10 miliar – Rp50 miliar | Min. Rp16,66 miliar                | Maks. Rp250 miliar        |
+| Besar 2         | \>Rp50 miliar             | Min. Rp83.33 miliar                | Tidak terbatas            |
 
 `**Baca Juga: [PPh Bunga Obligasi Turun, BUT Bisa Nikmati Pajak Obligasi 10%](https://klikpajak.id/blog/pph-bunga-obligasi-turun/)**`
 
