@@ -4,6 +4,8 @@ A personal knowledge base for **Indonesian tax law** (UU, PMK, PP, SE, and relat
 
 > **Architecture note**: Read [TAXWIKIDESIGN.md](TAXWIKIDESIGN.md) first for the goals, design decisions, and the fine-tuning pipeline. This README covers daily usage.
 
+> **Do not use real taxpayer data.** TaxWiki is for concepts, methods, and fictional use cases only — not SPT, NPWP, or client files. See [PRIVACY.md](PRIVACY.md) and [TERMS.md](TERMS.md).
+
 ## Philosophy
 
 Most RAG systems rediscover knowledge on every query. TaxWiki is different: **knowledge compounds**. When you add a source (a new PMK, an article on PPh 21, a court decision), the agent reads it, extracts the key ideas, creates concept pages, cross-references related pages, and flags contradictions. The wiki gets richer with every source and every question. Answers are filed back as new pages so nothing is lost.
